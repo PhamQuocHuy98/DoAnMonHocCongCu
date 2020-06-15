@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 } else if (state is MovieLoadingState) {
                   return loading();
                 } else if (state is MovieLoadedState) {
-                  return Container();
+                  return Home(state.movies);
                 } else if (state is MovieErrorState) {
                   return NetworkError();
                 }
