@@ -1,2 +1,9 @@
+<<<<<<< HEAD
 .dart_tool/
 build/
+=======
+build/
+.dart_tool/flutter_build/e8c4c4fd4e741b24ce33cc11942c8977/debug_android_application.stamp
+.dart_tool/flutter_build/e8c4c4fd4e741b24ce33cc11942c8977/app.dill
+.dart_tool/
+>>>>>>> d2bb25772d50d24a342dba3f32335c6b88a4563e
