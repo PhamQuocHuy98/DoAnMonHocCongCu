@@ -1,13 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doancongcu/data/model/api_result_model.dart';
+import 'package:doancongcu/data/model/genre.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:MOVIES/data/model/api_result_model.dart';
-import 'package:MOVIES/data/model/genre.dart';
-import 'package:MOVIES/screens/details.dart';
 
-class Home extends StatelessWidget {
+class HomeSceeen extends StatelessWidget {
   final List<Results> movies;
-  Home(this.movies);
+  HomeSceeen(this.movies);
 
   @override
   Widget build(BuildContext context) {
@@ -68,12 +67,12 @@ class Home extends StatelessWidget {
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.04),
-                                ),
+                                              ),
                                 getTextWidgets(context, geners),
                                 Row(
                                   children: <Widget>[
                                     Text(
-                                      "⭐ ${movies[index].voteAverage}",
+                                      ":star: ${movies[index].voteAverage}",
                                       style: TextStyle(
                                           color: Colors.grey,
                                           fontWeight: FontWeight.w200,
@@ -126,7 +125,8 @@ class Home extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              Details(movies[index])));
+                              //Details(movies[index])));
+                              Container()));
                     },
                     child: Hero(
                       tag:
