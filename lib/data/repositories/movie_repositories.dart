@@ -1,4 +1,5 @@
 
+import 'package:doancongcu/api_key.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:doancongcu/data/model/api_result_model.dart';
@@ -15,7 +16,7 @@ abstract class MovieRepository {
 
 class MovieRepositoryImpl implements MovieRepository {
   var baseUrl = "http://api.themoviedb.org/3/";
-  var key =""; //api_key;
+  var key =api_key;
 
   @override
   Future<List<Results>> getMovies(String movieType) async {
