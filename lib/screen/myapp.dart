@@ -7,6 +7,7 @@ import 'package:doancongcu/bloc/movie_bloc/movie_state.dart';
 import 'package:doancongcu/screen/network.dart';
 import 'package:doancongcu/data/repositories/movie_repositories.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:doancongcu/screen/movie_popular.dart';
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -82,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 } else if (state is MovieLoadingState) {
                   return loading();
                 } else if (state is MovieLoadedState) {
-                  return Container();
+                  return MoviePopularScreen(state.movies);
                 } else if (state is MovieErrorState) {
                   return NetworkError();
                 }
@@ -140,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           tab(0, "Đang Chiếu", "now_playing"),
-         // tab(1, "Sắp Chiểu", "upcoming"),
+       //   tab(1, "Sắp Chiểu", "upcoming"),
          // tab(2, "Phổ Biến", "popular"),
         ],
       ),
