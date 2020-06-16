@@ -1,4 +1,4 @@
-import 'package:doancongcu/screen/home_screen.dart';
+import 'package:doancongcu/screen/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +10,7 @@ import 'package:doancongcu/data/repositories/movie_repositories.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'package:doancongcu/screen/movie_popular.dart';
+import 'package:doancongcu/bloc/search_bloc/search_bloc.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -25,6 +26,10 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider<MovieBloc>(
           create: (context) => MovieBloc(repository: MovieRepositoryImpl()),
+        ),
+        BlocProvider<SearchMovieBloc>(
+          create: (context) =>
+              SearchMovieBloc(repository: MovieRepositoryImpl()),
         ),
       ],
       //create: (context) => MovieBloc(repository: MovieRepositoryImpl()),
@@ -129,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-              return Container();
+              return SearchScreen();
             }));
           },
         )
