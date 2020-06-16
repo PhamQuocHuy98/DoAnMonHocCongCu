@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doancongcu/data/model/api_result_model.dart';
 import 'package:doancongcu/data/model/genre.dart';
+import 'package:doancongcu/screen/details.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -66,8 +67,8 @@ class HomeSceeen extends StatelessWidget {
                                       fontWeight: FontWeight.w200,
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.04),
-                                              ),
+                                          0.04),
+                                ),
                                 getTextWidgets(context, geners),
                                 Row(
                                   children: <Widget>[
@@ -125,8 +126,7 @@ class HomeSceeen extends StatelessWidget {
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              //Details(movies[index])));
-                              Container()));
+                              Details(movies[index])));
                     },
                     child: Hero(
                       tag:
