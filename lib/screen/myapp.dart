@@ -1,5 +1,4 @@
-import 'package:doancongcu/screen/home_screen.dart';
-import 'package:doancongcu/screen/splash_screen.dart';
+import 'package:doancongcu/screen/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +10,7 @@ import 'package:doancongcu/data/repositories/movie_repositories.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'package:doancongcu/screen/movie_popular.dart';
+import 'package:doancongcu/bloc/search_bloc/search_bloc.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -27,6 +27,10 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<MovieBloc>(
           create: (context) => MovieBloc(repository: MovieRepositoryImpl()),
         ),
+        BlocProvider<SearchMovieBloc>(
+          create: (context) =>
+              SearchMovieBloc(repository: MovieRepositoryImpl()),
+        ),
       ],
       //create: (context) => MovieBloc(repository: MovieRepositoryImpl()),
       child: MaterialApp(
@@ -38,8 +42,7 @@ class _MyAppState extends State<MyApp> {
             value: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 statusBarIconBrightness: Brightness.light),
-            child:
-                Scaffold(backgroundColor: Colors.black, body: SplashScreen()),
+            child: Scaffold(backgroundColor: Colors.black, body: MyHomePage()),
           )),
     );
   }
@@ -130,7 +133,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             Navigator.push(context,
                 MaterialPageRoute(builder: (BuildContext context) {
-              return Container();
+              return SearchScreen();
             }));
           },
         )
@@ -145,8 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           tab(0, "Đang Chiếu", "now_playing"),
-
-          // tab(1, "Sắp Chiểu", "upcoming"),
+          tab(1, "Sắp Chiểu", "upcoming"),
           tab(2, "Phổ Biến", "popular"),
         ],
       ),
