@@ -1,4 +1,5 @@
 import 'package:doancongcu/screen/home_screen.dart';
+import 'package:doancongcu/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,7 +38,8 @@ class _MyAppState extends State<MyApp> {
             value: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 statusBarIconBrightness: Brightness.light),
-            child: Scaffold(backgroundColor: Colors.black, body: MyHomePage()),
+            child:
+                Scaffold(backgroundColor: Colors.black, body: SplashScreen()),
           )),
     );
   }
@@ -86,14 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   return loading();
                 } else if (state is MovieLoadedState) {
                   return MoviePopularScreen(state.movies);
-
                 } else if (state is MovieErrorState) {
                   return NetworkError();
                 }
               }),
             )
           ],
-          ),
+        ),
       ),
     );
   }
@@ -146,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
           tab(0, "Đang Chiếu", "now_playing"),
 
           // tab(1, "Sắp Chiểu", "upcoming"),
-           tab(2, "Phổ Biến", "popular"),
+          tab(2, "Phổ Biến", "popular"),
         ],
       ),
     );
