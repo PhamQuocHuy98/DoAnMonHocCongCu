@@ -145,8 +145,8 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           tab(0, "Đang Chiếu", "now_playing"),
 
-          // tab(1, "Sắp Chiểu", "upcoming"),
-           tab(2, "Phổ Biến", "popular"),
+          tab(1, "Sắp Chiểu", "upcoming"),
+          tab(2, "Phổ Biến", "popular"),
         ],
       ),
     );
