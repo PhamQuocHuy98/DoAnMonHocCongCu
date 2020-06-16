@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 } else if (state is MovieLoadingState) {
                   return loading();
                 } else if (state is MovieLoadedState) {
-                  return HomeSceeen(state.movies);
+                  return MoviePopularScreen(state.movies);
                 } else if (state is MovieErrorState) {
                   return NetworkError();
                 }
